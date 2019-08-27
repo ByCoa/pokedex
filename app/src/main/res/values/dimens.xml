@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <item name="wrap_content" type="dimen">-2</item>
+  <item name="match_parent" type="dimen">-1</item>
+  <dimen name="toolbar_normal_height">56dp</dimen>
+</resources>
