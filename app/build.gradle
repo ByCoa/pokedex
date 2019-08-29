@@ -29,6 +29,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled true
+    }
+
     productFlavors {
         stage {
             dimension dimensionName
@@ -68,7 +72,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     //Lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

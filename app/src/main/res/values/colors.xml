@@ -8,4 +8,6 @@
   <color name="dark_red">#C1272D</color>
   <color name="cherry_red">#ec2028</color>
   <color name="dark_white">#f5f5f5</color>
+  <color name="black">@android:color/black</color>
+  <color name="dark_gray">#4D4D4D</color>
 </resources>
