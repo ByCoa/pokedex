@@ -3,6 +3,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
   <data>
 
+    <variable
+        name="homeViewModel"
+        type="coa.elvis.pokedex.features.home.HomeViewModel" />
   </data>
   <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
@@ -16,11 +19,13 @@
         android:id="@+id/rv_pokemons"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Hello World!"
+        app:spanCount="2"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
+
         tools:listitem="@layout/view_card_pokemon"/>
 
   </androidx.constraintlayout.widget.ConstraintLayout>

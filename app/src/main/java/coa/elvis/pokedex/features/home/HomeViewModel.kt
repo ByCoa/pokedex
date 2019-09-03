@@ -7,7 +7,6 @@ import coa.elvis.pokedex.common.networking.Resource
 import coa.elvis.pokedex.common.networking.Status
 import coa.elvis.pokedex.common.networking.response.Pokemon
 import coa.elvis.pokedex.repository.remote.PokemonRemoteDataSource
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope.coroutineContext
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -17,7 +16,9 @@ class HomeViewModel internal constructor(private val homeRepository: PokemonRemo
 
   val pokemonsMutableLiveData = MutableLiveData<List<Pokemon>>()
 
-  val pokemonList = arrayListOf<Pokemon>()
+  val pokemonDataUpdated = MutableLiveData<Boolean>().apply { value = false }
+
+  var pokemonList = arrayListOf<Pokemon>()
 
 
   fun start() {
@@ -41,7 +42,7 @@ class HomeViewModel internal constructor(private val homeRepository: PokemonRemo
   }
 
   private fun fetchNinePokemon() {
-    viewModelScope.launch(context = Dispatchers.IO) {
+    viewModelScope.launch {
       val deferredList = listOf(
         async { homeRepository.searchPokemon("1") },
         async { homeRepository.searchPokemon("2") },
@@ -55,13 +56,18 @@ class HomeViewModel internal constructor(private val homeRepository: PokemonRemo
       deferredList.awaitAll().forEach {
         pokemonList.add(processPokemonResponse(it))
       }
+      okResponse()
     }
+  }
+
+  fun okResponse() {
+    pokemonsMutableLiveData.value = pokemonList
   }
 
   private fun processPokemonResponse(pokemonResponse: Resource<Pokemon>): Pokemon {
     when (pokemonResponse.status) {
       Status.SUCCESS -> {
-        println("Name pokemon: " + pokemonResponse.data!!.name)
+        println("Name pokemon: " + pokemonResponse.data!!.name + " Sprite front: " + pokemonResponse.data.sprites.front_default)
 
       }
       Status.ERROR -> {

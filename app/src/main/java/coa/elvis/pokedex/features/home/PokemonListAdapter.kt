@@ -11,8 +11,8 @@ class PokemonListAdapter : RecyclerView.Adapter<PokemonListAdapter.PokemonViewHo
   private var pokemons = mutableListOf<Pokemon>()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-    val inflater = LayoutInflater.from(parent.context)
-    val pokemonListItemBinding = ViewCardPokemonBinding.inflate(inflater)
+    val pokemonListItemBinding =
+      ViewCardPokemonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     return PokemonViewHolder(pokemonListItemBinding)
   }
 
