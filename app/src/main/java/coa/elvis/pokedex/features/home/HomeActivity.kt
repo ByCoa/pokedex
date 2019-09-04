@@ -42,5 +42,5 @@ class HomeActivity : BaseActivity() {
 
   override fun onToolbarActionClick() {}
 
-  override fun getToolbarTitle(): Int = R.string.app_name
+  override fun getToolbarTitle(): Int = R.drawable.img_logo_pokedex
 }

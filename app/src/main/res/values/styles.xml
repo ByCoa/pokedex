@@ -41,5 +41,9 @@
     <item name="android:layout_gravity">center|top</item>
   </style>
 
+  <style name="ToolbarImg">
+    <item name="android:layout_gravity">center|top</item>
+  </style>
+
 
 </resources>

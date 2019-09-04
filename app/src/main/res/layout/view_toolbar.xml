@@ -19,11 +19,18 @@
       android:contentDescription="@string/close"
       app:srcCompat="@drawable/ic_close_white"/>
 
-  <androidx.appcompat.widget.AppCompatTextView
+  <!--<androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/toolbar_title"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      tools:text="This is a toolbar"
-      style="@style/ToolbarTitle"/>
+      tools:text=""
+      style="@style/ToolbarTitle"/>-->
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/toolbar_title"
+      android:layout_width="130dp"
+      android:layout_height="wrap_content"
+      style="@style/ToolbarImg"
+      app:srcCompat="@drawable/img_logo_pokedex" />
 
 </androidx.appcompat.widget.Toolbar>

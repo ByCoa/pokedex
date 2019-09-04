@@ -2,7 +2,7 @@ package coa.elvis.pokedex.common.base
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageButton
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.AppCompatImageView
 import coa.elvis.pokedex.R
 import kotlinx.android.synthetic.main.view_toolbar.*
 
@@ -18,8 +18,8 @@ abstract class BaseActivity : AppCompatActivity() {
         this.setOnClickListener { onToolbarActionClick() }
       }
 
-      this.findViewById<AppCompatTextView>(R.id.toolbar_title).apply {
-        this.setText(getToolbarTitle())
+      this.findViewById<AppCompatImageView>(R.id.toolbar_title).apply {
+        this.setImageResource(getToolbarTitle())
       }
 
       setSupportActionBar(toolbar)
