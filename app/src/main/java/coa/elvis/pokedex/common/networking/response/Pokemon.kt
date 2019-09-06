@@ -1,7 +1,9 @@
 package coa.elvis.pokedex.common.networking.response
 
+import android.annotation.SuppressLint
 import coa.elvis.pokedex.common.extensions.EMPTY_STR
 
+@SuppressLint("DefaultLocale")
 data class Pokemon(
   val abilities: List<Ability>,
   val base_experience: Int,
@@ -11,7 +13,6 @@ data class Pokemon(
   val held_items: List<HeldItem>,
   val id: Int,
   val is_default: Boolean,
-  //val location_area_encounters: List<LocationAreaEncounter>,
   val moves: List<Move>,
   val name: String,
   val order: Int,

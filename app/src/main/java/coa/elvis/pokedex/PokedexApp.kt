@@ -16,5 +16,6 @@ class PokedexApp : Application() {
       androidContext(this@PokedexApp)
       modules(listOf(networkModule, *allAppModules.toTypedArray()))
     }
+
   }
 }

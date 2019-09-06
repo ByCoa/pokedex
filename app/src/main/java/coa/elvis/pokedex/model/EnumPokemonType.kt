@@ -2,7 +2,7 @@ package coa.elvis.pokedex.model
 
 import coa.elvis.pokedex.R
 
-enum class PokemonType {
+enum class EnumPokemonType {
   Normal,
   Fighting,
   Flying,
@@ -22,7 +22,8 @@ enum class PokemonType {
   Dark,
   Fairy,
   Unknown,
-  Shadow;
+  Shadow,
+  Empty;
 
   fun background() : Int {
     when(this){
@@ -46,6 +47,7 @@ enum class PokemonType {
       Fairy-> return R.color.type_fairy
       Unknown-> return R.color.type_typeless
       Shadow-> return R.color.type_shadow
+      Empty-> return android.R.color.transparent
     }
   }
 }

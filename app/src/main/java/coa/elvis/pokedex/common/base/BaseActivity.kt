@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.view_toolbar.*
 
 
 abstract class BaseActivity : AppCompatActivity() {
-
   override fun setContentView(layoutResID: Int) {
     super.setContentView(layoutResID)
     toolbar?.apply {

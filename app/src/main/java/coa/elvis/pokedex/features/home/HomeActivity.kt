@@ -34,7 +34,7 @@ class HomeActivity : BaseActivity() {
   fun setObservers() {
     homeViewModel.pokemonsMutableLiveData.observe(
       this,
-      Observer<List<Pokemon>> { pokemons: List<Pokemon> -> adapter.setupList(pokemons) })
+      Observer<List<Pokemon>> { pokemons: List<Pokemon> -> adapter.setData(pokemons) })
   }
 
 
