@@ -12,7 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class HomeActivity : BaseActivity() {
-
+  //Changes
   private val homeViewModel: HomeViewModel by viewModel()
   lateinit var adapter: PokemonListAdapter
   lateinit var activityMainBinding: ActivityMainBinding
