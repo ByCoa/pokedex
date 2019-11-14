@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+  <data>
+
+    <import type="coa.elvis.pokedex.common.networking.response.Pokemon" />
+    <variable name="pokemon"
+        type="coa.elvis.pokedex.common.networking.response.Pokemon"/>
+  </data>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="210dp"
+      android:adjustViewBounds="true">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="1dp">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitXY"
+            app:imageFromUrl="@{pokemon.sprites.front_default}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_whos_that_pokemon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPic"
+            android:layout_marginStart="8dp"
+            android:padding="2dp"
+            android:text="@{pokemon.formattedId}"
+            android:textColor="@color/dark_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPic"
+            tools:text="N.000"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFullName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPic"
+            android:layout_marginStart="8dp"
+            android:padding="2dp"
+            android:text="@{pokemon.capitalizeName}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvId"
+            tools:text="Who's that pokemon?" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pokemon_types"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="8dp"
+            app:data="@{pokemon}"
+            app:spanCount="2"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFullName"
+            tools:listitem="@layout/view_pokemon_type_item"/>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+</layout>
