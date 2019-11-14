@@ -13,6 +13,8 @@ private val appModule = module {
   factory { String() }
 }
 
+
+
 private val splashModule = module {
   viewModel { SplashViewModel(get()) }
   factory { SplashRepository() }
